@@ -10,6 +10,7 @@ class Shop extends ChangeNotifier {
       price: 349.99,
       description:
           "Bose QC 45 Over-Ear Headphones with Bluetooth, Noise Cancelling, and Built-in Mic in Triple Black.",
+      imagePath: "assets/Bose.png",
     ),
     //product2
     Product(
@@ -17,6 +18,7 @@ class Shop extends ChangeNotifier {
       price: 519.99,
       description:
           "DJI Osmo Pocket 3: 4K/120fps Video, 3-Axis Stabilization, Face/Object Tracking, Fast Focusing.",
+      imagePath: "assets/dji.jpeg",
     ),
     //product3
     Product(
@@ -24,6 +26,7 @@ class Shop extends ChangeNotifier {
       price: 49.99,
       description:
           "Nothing Watch Pro: 1.96 AMOLED, BT calling, AI noise reduction, GPS Smartwatch (Dark Grey Strap).",
+      imagePath: "assets/cmf.webp",
     ),
     //product4
     Product(
@@ -31,6 +34,7 @@ class Shop extends ChangeNotifier {
       price: 649.99,
       description:
           "Experience Ultra-high-speed SSD, haptic feedback, adaptive triggers, 3D Audio, next-gen gaming.",
+      imagePath: "assets/ps5.webp",
     ),
   ];
 
