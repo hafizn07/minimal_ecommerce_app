@@ -11,10 +11,10 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool light = false;
-
   @override
   Widget build(BuildContext context) {
+    final themeState = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -28,12 +28,10 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           MySwitch(
             title: 'Dark mode',
-            value: light,
+            value: themeState.getDarkTheme,
             onChange: (bool value) {
               setState(() {
-                light = value;
-                Provider.of<ThemeProvider>(context, listen: false)
-                    .toggleTheme();
+                themeState.setDarkTheme = value;
               });
             },
           )

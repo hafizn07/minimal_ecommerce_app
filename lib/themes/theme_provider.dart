@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:minimal_ecommerce_app/themes/theme.dart';
+import 'package:minimal_ecommerce_app/themes/theme_pref.dart';
 
 class ThemeProvider with ChangeNotifier {
-  ThemeData _themeData = lightMode;
+  ThemePrefs themePrefs = ThemePrefs();
+  bool _darktheme = false;
 
-  ThemeData get themeData => _themeData;
-
-  set themeData(ThemeData themeData) {
-    _themeData = themeData;
+  bool get getDarkTheme => _darktheme;
+  set setDarkTheme(bool value) {
+    _darktheme = value;
+    themePrefs.setDarkTheme(value);
     notifyListeners();
-  }
-
-  void toggleTheme() {
-    if (_themeData == lightMode) {
-      themeData = darkMode;
-    } else {
-      themeData = lightMode;
-    }
   }
 }

@@ -4,36 +4,55 @@ import 'package:minimal_ecommerce_app/pages/cart_page.dart';
 import 'package:minimal_ecommerce_app/pages/intro_page.dart';
 import 'package:minimal_ecommerce_app/pages/settings_page.dart';
 import 'package:minimal_ecommerce_app/pages/shop_page.dart';
+import 'package:minimal_ecommerce_app/themes/theme.dart';
 import 'package:minimal_ecommerce_app/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => ThemeProvider()),
-        ChangeNotifierProvider(create: (context) => Shop()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeProvider themeChangeProvider = ThemeProvider();
+
+  void getCurrentTheme() async {
+    themeChangeProvider.setDarkTheme =
+        await themeChangeProvider.themePrefs.getTheme();
+  }
+
+  @override
+  void initState() {
+    getCurrentTheme();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const IntroPage(),
-      theme: Provider.of<ThemeProvider>(context).themeData,
-      routes: {
-        '/intro_page': (context) => const IntroPage(),
-        '/shop_page': (context) => const ShopPage(),
-        '/cart_page': (context) => const CartPage(),
-        '/settings_page': (context) => const SettingsPage(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => themeChangeProvider),
+        ChangeNotifierProvider(create: (context) => Shop())
+      ],
+      child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: const IntroPage(),
+          theme: ThemeStyles.themeData(themeProvider.getDarkTheme, context),
+          routes: {
+            '/intro_page': (context) => const IntroPage(),
+            '/shop_page': (context) => const ShopPage(),
+            '/cart_page': (context) => const CartPage(),
+            '/settings_page': (context) => const SettingsPage(),
+          },
+        );
+      }),
     );
   }
 }
