@@ -41,6 +41,16 @@ class MyDrawer extends StatelessWidget {
                   Navigator.pushNamed(context, '/cart_page');
                 },
               ),
+
+              //settings tile
+              MyListTile(
+                title: "Settings",
+                icon: Icons.settings_sharp,
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/settings_page');
+                },
+              ),
             ],
           ),
           //exit shop tile
@@ -49,7 +59,8 @@ class MyDrawer extends StatelessWidget {
             child: MyListTile(
               title: "Exit",
               icon: Icons.logout,
-              onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/intro_page', (route) => false),
+              onTap: () => Navigator.pushNamedAndRemoveUntil(
+                  context, '/intro_page', (route) => false),
             ),
           ),
         ],

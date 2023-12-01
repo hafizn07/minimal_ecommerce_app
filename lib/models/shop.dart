@@ -18,7 +18,7 @@ class Shop extends ChangeNotifier {
       price: 519.99,
       description:
           "DJI Osmo Pocket 3: 4K/120fps Video, 3-Axis Stabilization, Face/Object Tracking, Fast Focusing.",
-      imagePath: "assets/dji.jpeg",
+      imagePath: "assets/dji.png",
     ),
     //product3
     Product(
