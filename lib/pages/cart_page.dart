@@ -13,7 +13,7 @@ class CartPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        content: const Text('Remove this item to your cart?'),
+        content: Text('Remove "${product.name}" from your cart?'),
         actions: [
           //cancel button
           MaterialButton(
@@ -76,12 +76,28 @@ class CartPage extends StatelessWidget {
                       final item = cart[index];
 
                       //return as a cart tile UI
-                      return ListTile(
-                        title: Text(item.name),
-                        subtitle: Text(item.price.toStringAsFixed(2)),
-                        trailing: IconButton(
-                          onPressed: () => removeItemFromCart(context, item),
-                          icon: const Icon(Icons.remove),
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        margin: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(10),
+                        child: ListTile(
+                          leading: Container(
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.secondary,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(item.imagePath),
+                          ),
+                          title: Text(item.name),
+                          subtitle: Text(item.price.toStringAsFixed(2)),
+                          trailing: IconButton(
+                            onPressed: () => removeItemFromCart(context, item),
+                            icon: const Icon(Icons.cancel_outlined),
+                          ),
                         ),
                       );
                     },
@@ -91,11 +107,18 @@ class CartPage extends StatelessWidget {
           //pay button
           cart.isEmpty
               ? Container()
-              : Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: MyButton(
-                    onTap: () => handlePayment(context),
-                    child: const Text("PAY NOW"),
+              : SizedBox(
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.all(50.0),
+                    child: MyButton(
+                      onTap: () => handlePayment(context),
+                      child: const Text(
+                        "PAY NOW",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
                   ),
                 )
         ],
