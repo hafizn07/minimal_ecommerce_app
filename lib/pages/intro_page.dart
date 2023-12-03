@@ -29,7 +29,7 @@ class IntroPage extends StatelessWidget {
             const SizedBox(height: 5),
             //subtitle
             Text(
-              "Premium Quality Products",
+              "Made with flutter 🩶",
               style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary),
             ),

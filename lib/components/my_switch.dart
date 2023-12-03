@@ -23,13 +23,13 @@ class _MySwitchState extends State<MySwitch> {
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(12),
       ),
-      margin: const EdgeInsets.all(15),
-      padding: const EdgeInsets.all(10),
-      child: SwitchListTile(
+      margin: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+      padding: const EdgeInsets.all(8),
+      child: SwitchListTile.adaptive(
+        applyCupertinoTheme: false,
         title: Text(widget.title),
         value: widget.value,
         onChanged: widget.onChange,
-        activeColor: Theme.of(context).colorScheme.inversePrimary,
       ),
     );
   }

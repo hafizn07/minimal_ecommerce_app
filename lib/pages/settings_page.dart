@@ -24,17 +24,21 @@ class _SettingsPageState extends State<SettingsPage> {
         centerTitle: true,
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
+      body: ListView(
         children: [
-          MySwitch(
-            title: 'Dark mode',
-            value: themeState.getDarkTheme,
-            onChange: (bool value) {
-              setState(() {
-                themeState.setDarkTheme = value;
-              });
-            },
-          )
+          Column(
+            children: [
+              MySwitch(
+                title: 'Dark mode',
+                value: themeState.getDarkTheme,
+                onChange: (bool value) {
+                  setState(() {
+                    themeState.setDarkTheme = value;
+                  });
+                },
+              ),
+            ],
+          ),
         ],
       ),
     );

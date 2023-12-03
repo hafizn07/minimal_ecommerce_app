@@ -27,41 +27,45 @@ class ShopPage extends StatelessWidget {
       ),
       drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
+      body: ListView(
         children: [
-          // Header
-          const MyHeader(
-            heading: "Shop",
-            subHeading: "Pick from a selected list of premium products.",
-          ),
+          Column(
+            children: [
+              // Header
+              const MyHeader(
+                heading: "Shop",
+                subHeading: "Pick from a selected list of premium products.",
+              ),
 
-          // Product list
-          SizedBox(
-            height: 585,
-            child: ListView.builder(
-              itemCount: products.length,
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.all(10),
-              itemBuilder: (context, index) {
-                // Get each individual product from shop
-                final product = products[index];
+              // Product list
+              SizedBox(
+                height: 585,
+                child: ListView.builder(
+                  itemCount: products.length,
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.all(10),
+                  itemBuilder: (context, index) {
+                    // Get each individual product from shop
+                    final product = products[index];
 
-                // Return a product tile UI
-                return MyProductTile(product: product);
-              },
-            ),
-          ),
+                    // Return a product tile UI
+                    return MyProductTile(product: product);
+                  },
+                ),
+              ),
 
-          const SizedBox(height: 35),
-          // Text at the bottom
-          Text(
-            "minimal x shop",
-            style: TextStyle(
-              fontFamily: 'Play',
-              letterSpacing: 3.0,
-              fontSize: 15,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
+              const SizedBox(height: 35),
+              // Text at the bottom
+              Text(
+                "minimal x shop",
+                style: TextStyle(
+                  fontFamily: 'Play',
+                  letterSpacing: 3.0,
+                  fontSize: 15,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
+              ),
+            ],
           ),
         ],
       ),
