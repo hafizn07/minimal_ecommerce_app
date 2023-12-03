@@ -17,7 +17,7 @@ class MyProductTile extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        content: const Text('Add this item to your cart?'),
+        content: Text('Add "${product.name}" item to your cart?'),
         actions: [
           //cancel button
           MaterialButton(
@@ -100,8 +100,12 @@ class MyProductTile extends StatelessWidget {
               //add to cart button
               Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.secondary,
+                    width: 1.5,
+                  ),
                 ),
                 child: IconButton(
                   onPressed: () => addToCart(context),

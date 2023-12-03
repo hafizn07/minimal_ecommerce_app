@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/my_button.dart';
+import 'package:minimal_ecommerce_app/components/my_header.dart';
 import 'package:minimal_ecommerce_app/models/product.dart';
 import 'package:minimal_ecommerce_app/models/shop.dart';
 import 'package:provider/provider.dart';
@@ -57,12 +58,15 @@ class CartPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Your Cart"),
-        centerTitle: true,
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         children: [
+          //header
+          const MyHeader(
+            heading: "Cart",
+            subHeading: "Check your cart before paying!",
+          ),
           //cart list
           Expanded(
             child: cart.isEmpty

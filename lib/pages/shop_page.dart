@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/my_drawer.dart';
+import 'package:minimal_ecommerce_app/components/my_header.dart';
 import 'package:minimal_ecommerce_app/components/my_product_tile.dart';
 import 'package:minimal_ecommerce_app/models/shop.dart';
 import 'package:provider/provider.dart';
@@ -16,9 +17,6 @@ class ShopPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Shop page"),
-        centerTitle: true,
         actions: [
           //goto cart page
           IconButton(
@@ -29,33 +27,37 @@ class ShopPage extends StatelessWidget {
       ),
       drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: ListView(
+      body: Column(
         children: [
-          const SizedBox(height: 25),
-          //shop subtitle
-          Center(
-            child: Text(
-              "Pick from a selected list of premium products.",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.inversePrimary,
-              ),
-            ),
+          // Header
+          const MyHeader(
+            heading: "Shop",
+            subHeading: "Pick from a selected list of premium products.",
           ),
 
-          //product list
+          // Product list
           SizedBox(
             height: 585,
             child: ListView.builder(
               itemCount: products.length,
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(10),
               itemBuilder: (context, index) {
-                //get each individual product from shop
+                // Get each individual product from shop
                 final product = products[index];
 
-                //return a product tile UI
+                // Return a product tile UI
                 return MyProductTile(product: product);
               },
+            ),
+          ),
+
+          const SizedBox(height: 35),
+          // Text at the bottom
+          Text(
+            "minimal x shop",
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
         ],
