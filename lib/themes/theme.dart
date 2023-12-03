@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ThemeStyles {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
+      fontFamily: 'Poppins',
       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
       colorScheme: isDarkTheme
           ? ColorScheme.dark(

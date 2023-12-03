@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/my_button.dart';
+import 'package:lottie/lottie.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -13,21 +14,19 @@ class IntroPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(
-              Icons.shopping_bag,
-              size: 72,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-            const SizedBox(height: 25),
+            Lottie.asset("assets/cart.json"),
+
             //title
-            const Text(
-              "Minimal Shopping",
-              style: TextStyle(
+            Text(
+              "minimal shop".toUpperCase(),
+              style: const TextStyle(
+                letterSpacing: 1,
+                fontFamily: 'Play',
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 30,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             //subtitle
             Text(
               "Premium Quality Products",

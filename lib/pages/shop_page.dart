@@ -57,6 +57,9 @@ class ShopPage extends StatelessWidget {
           Text(
             "minimal x shop",
             style: TextStyle(
+              fontFamily: 'Play',
+              letterSpacing: 3.0,
+              fontSize: 15,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),

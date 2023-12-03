@@ -97,7 +97,7 @@ class CartPage extends StatelessWidget {
                             child: Image.asset(item.imagePath),
                           ),
                           title: Text(item.name),
-                          subtitle: Text(item.price.toStringAsFixed(2)),
+                          subtitle: Text('\$${item.price.toStringAsFixed(2)}'),
                           trailing: IconButton(
                             onPressed: () => removeItemFromCart(context, item),
                             icon: const Icon(Icons.cancel_outlined),

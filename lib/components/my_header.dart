@@ -24,9 +24,11 @@ class MyHeader extends StatelessWidget {
               style: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.w600,
+                fontFamily: 'Play',
                 color: Theme.of(context).colorScheme.inversePrimary,
               ),
             ),
+            const SizedBox(height: 10),
             Text(
               subHeading,
               style: TextStyle(

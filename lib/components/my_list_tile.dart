@@ -21,7 +21,12 @@ class MyListTile extends StatelessWidget {
           icon,
           color: Colors.grey,
         ),
-        title: Text(title),
+        title: Text(
+          title.toUpperCase(),
+          style: const TextStyle(
+            fontFamily: 'Play',
+          ),
+        ),
         onTap: onTap,
       ),
     );

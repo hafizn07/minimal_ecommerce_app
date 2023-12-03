@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/my_list_tile.dart';
+import 'package:lottie/lottie.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -16,11 +17,7 @@ class MyDrawer extends StatelessWidget {
               //drawer header:logo
               DrawerHeader(
                 child: Center(
-                  child: Icon(
-                    Icons.shopping_bag,
-                    size: 72,
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
+                  child: Lottie.asset("assets/cart.json"),
                 ),
               ),
 
