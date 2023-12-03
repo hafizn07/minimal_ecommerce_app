@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/my_list_tile.dart';
-import 'package:lottie/lottie.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -14,10 +13,16 @@ class MyDrawer extends StatelessWidget {
         children: [
           Column(
             children: [
-              //drawer header:logo
+              //drawer header:User
               DrawerHeader(
                 child: Center(
-                  child: Lottie.asset("assets/cart.json"),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/login_page');
+                    },
+                    child: const Text('Sign In!'),
+                  ),
                 ),
               ),
 

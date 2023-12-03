@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/models/shop.dart';
 import 'package:minimal_ecommerce_app/pages/cart_page.dart';
 import 'package:minimal_ecommerce_app/pages/intro_page.dart';
+import 'package:minimal_ecommerce_app/pages/login_page.dart';
 import 'package:minimal_ecommerce_app/pages/settings_page.dart';
 import 'package:minimal_ecommerce_app/pages/shop_page.dart';
 import 'package:minimal_ecommerce_app/themes/theme.dart';
@@ -50,6 +51,7 @@ class _MyAppState extends State<MyApp> {
             '/shop_page': (context) => const ShopPage(),
             '/cart_page': (context) => const CartPage(),
             '/settings_page': (context) => const SettingsPage(),
+            '/login_page': (context) => LoginPage(),
           },
         );
       }),
