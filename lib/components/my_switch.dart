@@ -30,6 +30,7 @@ class _MySwitchState extends State<MySwitch> {
         title: Text(widget.title),
         value: widget.value,
         onChanged: widget.onChange,
+        activeTrackColor: Colors.greenAccent.shade400,
       ),
     );
   }
