@@ -15,6 +15,7 @@ dependencies:
   shared_preferences: ^2.2.2
   lottie: ^2.7.0
   firebase_core: ^2.24.0
+  firebase_auth: ^4.15.0
 
 dev_dependencies:
   flutter_test:

@@ -1,17 +1,72 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:minimal_ecommerce_app/components/my_square_tile.dart';
 import 'package:minimal_ecommerce_app/components/my_text_field.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   //text editing controllers
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   //sign user in method
-  void signUserIn() {}
+  void signUserIn(context) async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pop(context);
+      Navigator.pushNamed(context, '/shop_page');
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      if (e.code == 'user-not-found') {
+        wrongEmailMessage();
+      } else if (e.code == 'wrong-password') {
+        wrongPasswordMessage();
+      }
+    }
+  }
+
+  //wrong email message popup
+  void wrongEmailMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text("Incorrect Email"),
+        );
+      },
+    );
+  }
+
+  //wrong password message popup
+  void wrongPasswordMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text("Incorrect Password"),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +97,10 @@ class LoginPage extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 25),
-                  //username textfield
+                  //email textfield
                   MyTextField(
-                    controller: usernameController,
-                    hintText: "Username",
+                    controller: emailController,
+                    hintText: "Email",
                     obscureText: false,
                   ),
 
@@ -77,7 +132,7 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   //signIn button
                   GestureDetector(
-                    onTap: signUserIn,
+                    onTap: () => signUserIn(context),
                     child: Container(
                       padding: const EdgeInsets.all(22),
                       margin: const EdgeInsets.symmetric(horizontal: 25),

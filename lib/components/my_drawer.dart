@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal_ecommerce_app/components/my_list_tile.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  void signOut(context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushNamed(context, '/intro_page');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +22,27 @@ class MyDrawer extends StatelessWidget {
               //drawer header:User
               DrawerHeader(
                 child: Center(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.pushNamed(context, '/login_page');
+                  child: StreamBuilder<User?>(
+                    stream: FirebaseAuth.instance.authStateChanges(),
+                    builder: (context, snapshot) {
+                      //user is logged in
+                      if (snapshot.hasData) {
+                        String username = snapshot.data?.displayName ?? "User";
+                        return InkWell(
+                          onTap: () => signOut(context),
+                          child: Text("Welcome, $username!"),
+                        );
+                      } else {
+                        //user is not logged in
+                        return InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/login_page');
+                          },
+                          child: const Text('Sign In!'),
+                        );
+                      }
                     },
-                    child: const Text('Sign In!'),
                   ),
                 ),
               ),

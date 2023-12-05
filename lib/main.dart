@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
             '/shop_page': (context) => const ShopPage(),
             '/cart_page': (context) => const CartPage(),
             '/settings_page': (context) => const SettingsPage(),
-            '/login_page': (context) => LoginPage(),
+            '/login_page': (context) => const LoginPage(),
           },
         );
       }),
