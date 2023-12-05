@@ -21,12 +21,16 @@ class MyTextField extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.primary),
+            borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.primary,
+              width: 1.5,
+            ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.inversePrimary),
+            borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.inversePrimary,
+              width: 1.5,
+            ),
           ),
           fillColor: Theme.of(context).colorScheme.secondary,
           filled: true,

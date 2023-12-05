@@ -37,7 +37,7 @@ class MyDrawer extends StatelessWidget {
                         return InkWell(
                           onTap: () {
                             Navigator.pop(context);
-                            Navigator.pushNamed(context, '/login_page');
+                            Navigator.pushNamed(context, '/loginregister_page');
                           },
                           child: const Text('Sign In!'),
                         );
