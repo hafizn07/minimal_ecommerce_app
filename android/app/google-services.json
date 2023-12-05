@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "359571859296",
+    "project_id": "minimalshop-8f30b",
+    "storage_bucket": "minimalshop-8f30b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359571859296:android:de5fc198bb7a1e22f42005",
+        "android_client_info": {
+          "package_name": "com.example.minimal_ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5JmSPtmdFdvgg6xKyjPBrOmJFXKeK770"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
