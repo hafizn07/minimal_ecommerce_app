@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(width: 25),
                           SquareTile(
-                            onTap: () {},
+                            onTap: () => AuthService().signInWithApple(),
                             imagePath: "assets/apple.png",
                           ),
                         ],

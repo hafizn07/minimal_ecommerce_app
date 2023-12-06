@@ -195,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             const SizedBox(width: 25),
                             SquareTile(
-                              onTap: () {},
+                              onTap: () => AuthService().signInWithApple(),
                               imagePath: "assets/apple.png",
                             ),
                           ],
