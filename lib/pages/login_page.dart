@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:minimal_ecommerce_app/components/my_square_tile.dart';
 import 'package:minimal_ecommerce_app/components/my_text_field.dart';
+import 'package:minimal_ecommerce_app/pages/forgot_pw_sheet.dart';
 import 'package:minimal_ecommerce_app/pages/shop_page.dart';
 import 'package:minimal_ecommerce_app/services/auth_service.dart';
 
@@ -115,12 +116,27 @@ class _LoginPageState extends State<LoginPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inversePrimary,
+                            GestureDetector(
+                              onTap: () => {
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  isDismissible: false,
+                                  enableDrag: false,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.background,
+                                  context: context,
+                                  builder: (context) {
+                                    return const ForgotPasswordSheet();
+                                  },
+                                )
+                              },
+                              child: Text(
+                                "Forgot Password?",
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    color:
+                                        Theme.of(context).colorScheme.tertiary),
                               ),
                             ),
                           ],
